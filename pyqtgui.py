@@ -53,8 +53,7 @@ class MainWindow(QtGui.QMainWindow):
 
     def about(self):
         QtGui.QMessageBox.about(self, "About Menu",
-                "The <b>Menu</b> example shows how to create menu-bar menus "
-                "and context menus.")
+                "First basic Windowfor our Project.")
 
     def aboutQt(self):
         3+3
