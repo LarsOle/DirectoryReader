@@ -5,30 +5,29 @@ from PyQt4.QtCore import *
 class customTableWidget(QTableWidget):
 
     def __init__(self, order):
-        super(QTableWidget, self).__init__()
-
         self.default, self.word = zip(*order)
-        self.tableWidget = QTableWidget(0, len(self.default))
-        self.tableWidget.verticalHeader().setVisible(False)
-        self.tableWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.tableWidget.setGridStyle(Qt.PenStyle(0))
-        self.tableWidget.horizontalHeader().setResizeMode(QHeaderView.ResizeToContents)
-        
-        self.tableWidget.setHorizontalHeaderLabels(self.word)
+        super(QTableWidget, self).__init__(0, len(self.default))
 
-        self.tableWidget.doubleClicked.connect(self.startApplicationWithPath)
+        self.verticalHeader().setVisible(False)
+        self.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.setGridStyle(Qt.PenStyle(0))
+        self.horizontalHeader().setResizeMode(QHeaderView.ResizeToContents)
         
-        self.tableWidget.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.setHorizontalHeaderLabels(self.word)
 
-        self.tableWidget.setFocusPolicy(Qt.NoFocus)
+        self.doubleClicked.connect(self.startApplicationWithPath)
+        
+        self.setSelectionBehavior(QAbstractItemView.SelectRows)
+
+        self.setFocusPolicy(Qt.NoFocus)
 
     def startApplicationWithPath(self, item):
-        system("start " + tableWidget.item(item.row(), default.index('path')).text());
+        system("start " + self.item(item.row(), default.index('path')).text());
         
     def setItems(self, items):
-        self.tableWidget.setSortingEnabled(False)
+        self.setSortingEnabled(False)
         for item in items:
-            self.tableWidget.insertRow(0)
+            self.insertRow(0)
             for i, c in enumerate(self.default):
-                self.tableWidget.setItem(0, i, QTableWidgetItem(str(item[c])))
-        self.tableWidget.setSortingEnabled(True)
+                self.setItem(0, i, QTableWidgetItem(str(item[c])))
+        self.setSortingEnabled(True)
