@@ -17,7 +17,7 @@ def listFiles(path):
     for f in listdir(path):
        	fpath = join(path, f)
        	if not isdir(fpath):
-           	files.append(fpath)
+           	files.append(fpath)sd
        	else:
            	files.extend(listFiles(fpath))
-    return files            	
+    return files            
