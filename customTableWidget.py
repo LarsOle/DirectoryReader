@@ -5,15 +5,15 @@ from PyQt4.QtCore import *
 class customTableWidget(QTableWidget):
 
     def __init__(self, order):
-        self.default, self.word = zip(*order)
+        self.default, word = zip(*order)
         super(QTableWidget, self).__init__(0, len(self.default))
-
+        
         self.verticalHeader().setVisible(False)
         self.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.setGridStyle(Qt.PenStyle(0))
+        print(word)
+        self.setHorizontalHeaderLabels(word)
         self.horizontalHeader().setResizeMode(QHeaderView.ResizeToContents)
-        
-        self.setHorizontalHeaderLabels(self.word)
 
         self.doubleClicked.connect(self.startApplicationWithPath)
         
@@ -26,7 +26,8 @@ class customTableWidget(QTableWidget):
         
     def setItems(self, items):
         self.setSortingEnabled(False)
-        self.clear()
+        for i in range(self.rowCount()):
+            self.removeRow(0)
         for item in items:
             self.insertRow(0)
             for i, c in enumerate(self.default):
