@@ -26,12 +26,19 @@ class MainWindow(QtGui.QMainWindow):
         widget.setLayout(vbox)
 
         #Table
-        headers = ("File Name", "File Size", "Directory", "Year")
-        self.fileTable = QtGui.QTableWidget(0, 4)
+        headers = ("File Name", "File Size", "Directory", "Year","Comments")
+        self.fileTable = QtGui.QTableWidget(0, 5)
         self.fileTable.setHorizontalHeaderLabels(headers)
         self.fileTable.setSelectionMode(QtGui.QAbstractItemView.SingleSelection)
         self.fileTable.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
         mainLayout.addWidget(self.fileTable)
+
+        self.fileTable.insertRow(1)
+        self.fileTable.setItem(1, 0, "test.py")
+        self.fileTable.setItem(1, 1, "120mb")
+        self.fileTable.setItem(1, 2, "C:/Benutzer")
+        self.fileTable.setItem(1, 3, "12032")
+        self.fileTable.setItem(1, 4, "Hello")
 
         self.createActions()
         self.createMenus()
