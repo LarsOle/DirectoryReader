@@ -25,26 +25,20 @@ class MainWindow(QtGui.QMainWindow):
         self.createActions()
         self.createMenus()
 
-        message = "A context menu is available by right-clicking"
+        message = "Infobar"
         self.statusBar().showMessage(message)
 
         self.setWindowTitle("Ultimate File Viewer")
         self.setMinimumSize(800,600)
         self.resize(800,600)
 
-    def contextMenuEvent(self, event):
-        menu = QtGui.QMenu(self)
-        menu.addAction(self.cutAct)
-        menu.addAction(self.copyAct)
-        menu.addAction(self.pasteAct)
-        menu.exec_(event.globalPos())
 
     def newFile(self):
         3+3
 
     def open(self):
         3+3
-        	
+            
     def save(self):
         3+3
 
