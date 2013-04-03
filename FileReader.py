@@ -12,7 +12,7 @@ def listFilesPattern(path, pattern):
 			files.extend(listFilesPattern(fpath, pattern))
 	return files
 
-def listFiles(path): ss
+def listFiles(path):
     files = []
     for f in listdir(path):
        	fpath = join(path, f)
