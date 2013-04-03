@@ -5,13 +5,18 @@ app = QApplication(sys.argv)
 
 order = [("filename", "Filename")
         ,("filesize", "Filesize")
+        ,("path", "Path")
         ]
         
 default, word = zip(*order)
 
 tableWidget = QTableWidget(0, len(order))
-tableWidget.setHorizontalHeaderLabels(word)
 tableWidget.resize(800,600)
+tableWidget.verticalHeader().setVisible(False)
+
+tableWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)
+tableWidget.setHorizontalHeaderLabels(word)
+tableWidget.horizontalHeader().setResizeMode(QHeaderView.Stretch)
 
 from FileReader import *
 
