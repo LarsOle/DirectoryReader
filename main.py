@@ -18,11 +18,12 @@ vbox.addWidget(tableView)
 from os.path import dirname, basename
         
 def search(path):
+    print(path, dirname(path), basename(path))
     tableView.setItems(listFiles(dirname(path), basename(path)))
 
 inputBox = QLineEdit()
+inputBox.setText('')
 inputBox.textChanged.connect(search)
-inputBox.setText('D:\Downloads\*.mkv')
 vbox.addWidget(inputBox)
 
 widget = QWidget()
