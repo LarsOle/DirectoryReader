@@ -22,10 +22,11 @@ class customTableWidget(QTableWidget):
         self.setFocusPolicy(Qt.NoFocus)
 
     def startApplicationWithPath(self, item):
-        system("start " + self.item(item.row(), default.index('path')).text());
+        system("start " + self.item(item.row(), self.default.index('path')).text());
         
     def setItems(self, items):
         self.setSortingEnabled(False)
+        self.clear()
         for item in items:
             self.insertRow(0)
             for i, c in enumerate(self.default):
