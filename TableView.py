@@ -3,17 +3,22 @@ from PyQt4.QtGui import *
 
 app = QApplication(sys.argv)
 
-tableWidget = QTableWidget(0, 3)
-tableWidget.setHorizontalHeaderLabels(("Filename", "Filsize", "Path"))
+order = [("filename", "Filename")
+        ,("filesize", "Filesize")
+        ]
+        
+default, word = zip(*order)
+
+tableWidget = QTableWidget(0, len(order))
+tableWidget.setHorizontalHeaderLabels(word)
 tableWidget.resize(800,600)
 
 from FileReader import *
 
 for f in listFiles('D:\Downloads', '*.mkv'):
     tableWidget.insertRow(0)
-    tableWidget.setItem(0, 0, QTableWidgetItem(f['filename']))
-    tableWidget.setItem(0, 1, QTableWidgetItem(str(f['filesize'])))
-    tableWidget.setItem(0, 2, QTableWidgetItem(f['path']))
+    for i, c in enumerate(default):
+        tableWidget.setItem(0, i, QTableWidgetItem(str(f[c])))
 
 tableWidget.show()
 
