@@ -4,7 +4,7 @@ app = QApplication(sys.argv)
 
 tableWidget = QTableWidget(0, 2)
 tableWidget.setHorizontalHeaderLabels(("Filename", "Filename"))
-tableWidget.setItem(0, 0, QTableViewWidgetItem("abc"))
+tableWidget.setItem(0, 0, QTableWidgetItem("abc"))
 tableWidget.show()
 
 import sys
