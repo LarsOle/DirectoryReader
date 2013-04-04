@@ -4,7 +4,6 @@ from PyQt4.QtCore import *
 
 class customTableWidget(QTableWidget):
 
-#function to initialize the Table Widget
     def __init__(self, order):
         self.default, self.word = zip(*order)
         super(QTableWidget, self).__init__(0, len(self.default))
@@ -19,17 +18,16 @@ class customTableWidget(QTableWidget):
 
         self.doubleClicked.connect(self.startApplicationWithPath)
 
-#funtion to start an application when double clicked
     def startApplicationWithPath(self, item):
+        """ executes files with Windows only start application. Clicked row needs a valid path column """
         system("start " + self.item(item.row(), self.default.index('path')).text());
 
-#funtion to remove all rows from the table and create new ones for a new directory
+
     def setItems(self, items):
+        """ removes all items from table and sets new given items """
         self.setSortingEnabled(False)
 
-        for i in range(self.rowCount()):
-            self.removeRow(0)
-
+        self.setRowCount(0)
         for item in items:
             self.insertRow(0)
             for i, c in enumerate(self.default):

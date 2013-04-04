@@ -18,16 +18,15 @@ vbox.addWidget(tableView)
 from os.path import dirname, basename
         
 def search(path):
-    print(path, dirname(path), basename(path))
     tableView.setItems(listFiles(dirname(path), basename(path)))
 
 inputBox = QLineEdit()
-inputBox.setText('')
 inputBox.textChanged.connect(search)
+inputBox.setText('./*')
 vbox.addWidget(inputBox)
 
 widget = QWidget()
-widget.setMinimumSize(800, 600)
+widget.setMinimumSize(800, 800)
 widget.setLayout(vbox)
 widget.show()
 
