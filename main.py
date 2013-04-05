@@ -1,11 +1,11 @@
 from sys import argv, exit
 
-from PyQt4 import QApplication
+from PyQt4.QtGui import QApplication
 
-from QMainWindow import QMainWindow
+from CMainWindow import CMainWindow
 
 if  __name__ ==  "__main__":
   app = QApplication(argv)
-  mainWindow = QMainWindow()
-  mainWindow.show()
+  cMainWindow = CMainWindow()
+  cMainWindow.show()
   exit(app.exec_())

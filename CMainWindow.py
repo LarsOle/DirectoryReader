@@ -1,4 +1,4 @@
-from PyQt4 import QMainWindow
+from PyQt4.QtGui import QMainWindow
 
 from CWidget import CWidget
 
@@ -11,4 +11,4 @@ class CMainWindow(QMainWindow):
     self.cWidget = CWidget()
     #self.cMenuBar = CMenuBar()
 
-    self.setCentralWidget(cWidget)
+    self.setCentralWidget(self.cWidget)
