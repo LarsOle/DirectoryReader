@@ -32,7 +32,6 @@ class CWidget(QWidget):
         self.tabWidget.addTab(table, tabLabel)
         
     def refreshTables(self):
-        print(self.files)
         for tableData in self.tables:
             if tableData[1]:
                 tableData[0].setItems(filterFiles(self.files, tableData[1]))

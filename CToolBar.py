@@ -29,5 +29,3 @@ class CToolBar(QToolBar):
         dialog = AddTabDialog()
         dialog.exec()
         self.parent().centralWidget().addTab(dialog.lineEdit.text(), ('Filename', 'Filesize', 'Path'), dialog.lineEdit_2.text())
-        #self.parent().centralWidget().files = listFiles(dialog.lineEdit.text())
-        #self.parent().centralWidget().refreshTables()
