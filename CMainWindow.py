@@ -9,6 +9,6 @@ class CMainWindow(QMainWindow):
         self.setMinimumSize(1280, 720)
 
         self.cWidget = CWidget()
-        #self.cMenuBar = CMenuBar()
+        self.cMenuBar = CMenuBar()
 
         self.setCentralWidget(self.cWidget)
