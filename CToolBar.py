@@ -2,10 +2,11 @@ from PyQt4.QtGui import QToolBar, QAction, QIcon
 from PyQt4.QtCore import SIGNAL, SLOT
 
 from CDialogs import AddPathDialog, AddTabDialog
+from FileListOperations import listFiles, filterFiles
 
 class CToolBar(QToolBar):
 
-    def __init__(self, parent=0):
+    def __init__(self, parent=None):
         super(CToolBar, self).__init__()
         self.setMovable(False)
 
@@ -21,7 +22,12 @@ class CToolBar(QToolBar):
     def addPath(self):
         dialog = AddPathDialog()
         dialog.exec()
+        self.parent().centralWidget().files = listFiles(dialog.lineEdit.text())
+        self.parent().centralWidget().refreshTables()
         
     def addTab(self):
         dialog = AddTabDialog()
         dialog.exec()
+        self.parent().centralWidget().addTab(dialog.lineEdit.text(), ('Filename', 'Filesize', 'Path'), dialog.lineEdit_2.text())
+        #self.parent().centralWidget().files = listFiles(dialog.lineEdit.text())
+        #self.parent().centralWidget().refreshTables()

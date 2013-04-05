@@ -19,8 +19,8 @@ def listFiles(path):
                              , 'path': fpath
                              , 'filesize': stats.st_size
                              })
-            else:
-                files.extend(listFiles(fpath))
+        else:
+            files.extend(listFiles(fpath))
     return files
 
 def filterFiles(files, pattern):
