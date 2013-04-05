@@ -7,7 +7,11 @@ class CTableWidget(QTableWidget):
 
     def __init__(self, labels=("Filename", "Filesize", "Path"), parent=None):
         super(CTableWidget, self).__init__()
+        for i in range(len(labels)):
+            self.insertColumn(0)
         self.labels = labels
+        self.setHorizontalHeaderLabels(labels)
+        
         self.verticalHeader().setVisible(False)
         self.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.setGridStyle(Qt.PenStyle(0))
@@ -16,10 +20,6 @@ class CTableWidget(QTableWidget):
         self.setFocusPolicy(Qt.NoFocus)
 
         self.doubleClicked.connect(self.doubleClickedRow)
-        self.insertColumn(0)
-        self.insertColumn(0)
-        self.insertColumn(0)
-        self.setHorizontalHeaderLabels(labels)
 
     def doubleClickedRow(self):
         #system("start " + self.item(item.row(), self.default.index('path')).text());
