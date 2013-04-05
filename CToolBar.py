@@ -22,10 +22,12 @@ class CToolBar(QToolBar):
     def addPath(self):
         dialog = AddPathDialog()
         dialog.exec()
-        self.parent().centralWidget().files = listFiles(dialog.lineEdit.text())
-        self.parent().centralWidget().refreshTables()
+        if dialog.lineEdit.text():
+            self.parent().centralWidget().files = listFiles(dialog.lineEdit.text())
+            self.parent().centralWidget().refreshTables()
         
     def addTab(self):
         dialog = AddTabDialog()
         dialog.exec()
-        self.parent().centralWidget().addTab(dialog.lineEdit.text(), ('Filename', 'Filesize', 'Path'), dialog.lineEdit_2.text())
+        if dialog.lineEdit.text() and dialog.lineEdit_2.text():
+            self.parent().centralWidget().addTab(dialog.lineEdit.text(), ('Filename', 'Filesize', 'Path'), dialog.lineEdit_2.text())
