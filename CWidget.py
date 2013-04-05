@@ -9,6 +9,7 @@ class CWidget(QWidget):
         super(CWidget, self).__init__()
 
         self.tabWidget = QTabWidget()
+        self.tabWidget.setTabsClosable(True)
 
         self.tables = []
         self.files = listFiles('.')
