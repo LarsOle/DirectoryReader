@@ -8,27 +8,27 @@ class CWidget(QWidget):
     def __init__(self, parent=None):
         super(CWidget, self).__init__()
 
-        self.cTabWidget = QTabWidget()
+        self.tabWidget = QTabWidget()
 
         files = listFiles('.')
 
         allFilesTable = CTableWidget(("Filename", "Filesize", "Path"))
         allFilesTable.setItems(files)
-        self.cTabWidget.addTab(allFilesTable, "All Files")
+        self.tabWidget.addTab(allFilesTable, "All Files")
 
         vbox = QVBoxLayout()
-        vbox.addWidget(self.cTabWidget)
+        vbox.addWidget(self.tabWidget)
 
         self.setLayout(vbox)
         
         table1 = CTableWidget(("Filename", "Filesize"))
-        self.cTabWidget.addTab(table1, "Python Files")
+        self.tabWidget.addTab(table1, "Python Files")
         table1.setItems(filterFiles(files, '*.py'))
         
         table2 = CTableWidget(("Filename", "Path"))
-        self.cTabWidget.addTab(table2, "Readme")
+        self.tabWidget.addTab(table2, "Readme")
         table2.setItems(filterFiles(files, 'README'))
         
     def addTab(self, tabLabel, tableHeaderLabels):
         table = CTableWidget(tableHeaderLabels)
-        self.cTabWidget.addTab(table, tabLabel)
+        self.tabWidget.addTab(table, tabLabel)
