@@ -1,5 +1,5 @@
 from PyQt4.QtGui import QToolBar, QAction, QIcon, QStyle
-from PyQt4.QtCore import SIGNAL, SLOT
+from PyQt4.QtCore import SIGNAL
 
 from CDialogs import AddPathDialog, AddTabDialog
 from FileListOperations import listFiles, filterFiles
@@ -11,7 +11,7 @@ class CToolBar(QToolBar):
         self.setMovable(False)
 
         self.dir = QAction(self.style().standardIcon(QStyle.SP_DirHomeIcon), 'Change directory', self)
-        self.tab = QAction(self.style().standardIcon(QStyle.SP_FileDialogListView), 'Add tab', self)
+        self.tab = QAction(self.style().standardIcon(QStyle.SP_ToolBarHorizontalExtensionButton), 'Add tab', self)
 
         self.addAction(self.dir)
         self.addAction(self.tab)

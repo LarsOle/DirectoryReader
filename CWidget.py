@@ -1,4 +1,5 @@
-from PyQt4.QtGui import QWidget, QTabWidget, QVBoxLayout
+from PyQt4.QtGui import QWidget, QTabWidget, QVBoxLayout, QTabBar, QPushButton
+from PyQt4.QtCore import SIGNAL
 
 from CTableWidget import CTableWidget
 from FileListOperations import listFiles, filterFiles
@@ -18,6 +19,9 @@ class CWidget(QWidget):
         allFilesTable.setItems(self.files)
         self.tabWidget.addTab(allFilesTable, "All Files")        
         self.tables.append((allFilesTable, None))
+
+        self.tabWidget.tabCloseRequested.connect(self.tabWidget.removeTab)
+        self.tabWidget.tabBar().tabButton(0, QTabBar.RightSide).resize(0, 0)
 
         vbox = QVBoxLayout()
         vbox.addWidget(self.tabWidget)
