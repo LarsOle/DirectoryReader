@@ -1,6 +1,7 @@
 from PyQt4.QtGui import QMainWindow
 
 from CWidget import CWidget
+from CToolBar import CToolBar
 
 class CMainWindow(QMainWindow):
 
@@ -9,6 +10,7 @@ class CMainWindow(QMainWindow):
         self.setMinimumSize(1280, 720)
 
         self.cWidget = CWidget()
-        self.cMenuBar = CMenuBar()
+        self.CToolBar = CToolBar()
 
         self.setCentralWidget(self.cWidget)
+        self.addToolBar(self.CToolBar)
