@@ -22,9 +22,11 @@ class MainWindow(QMainWindow):
     self.inputBox.setText('./*')
     
     self.vbox = QVBoxLayout()
-    self.vbox.addWidget(self.inputBox)
     self.vbox.addWidget(self.tableView)
-    self.setLayout(self.vbox)
+    self.vbox.addWidget(self.inputBox)
+    
+    self.setCentralWidget(QWidget())
+    self.centralWidget().setLayout(self.vbox)
     
   def search(self, path):
     self.tableView.setItems(listFiles(dirname(path), basename(path)))    
