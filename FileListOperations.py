@@ -2,6 +2,11 @@ from os import listdir, stat
 from os.path import join, isfile, basename
 from stat import S_ISREG
 
+enToIntern = {'Filename': 'filename'
+            ,'Filesize': 'filesize'
+            ,'Path': 'path'
+            }
+
 def listFiles(path):
   files = []
   for f in listdir(path):

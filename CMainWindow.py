@@ -4,11 +4,11 @@ from CWidget import CWidget
 
 class CMainWindow(QMainWindow):
 
-  def __init__(self, parent=None):
-    super(CMainWindow, self).__init__()
-    self.setMinimumSize(1280, 720)
+    def __init__(self, parent=None):
+        super(CMainWindow, self).__init__()
+        self.setMinimumSize(1280, 720)
 
-    self.cWidget = CWidget()
-    #self.cMenuBar = CMenuBar()
+        self.cWidget = CWidget()
+        #self.cMenuBar = CMenuBar()
 
-    self.setCentralWidget(self.cWidget)
+        self.setCentralWidget(self.cWidget)
