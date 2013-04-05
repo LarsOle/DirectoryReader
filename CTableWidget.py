@@ -5,7 +5,7 @@ from FileListOperations import enToIntern
 
 class CTableWidget(QTableWidget):
 
-    def __init__(self, labels=("Filename", "Filesize", "Path"), parent=None):
+    def __init__(self, labels, parent=None):
         super(CTableWidget, self).__init__()
         for i in range(len(labels)):
             self.insertColumn(0)
@@ -31,11 +31,9 @@ class CTableWidget(QTableWidget):
 
         self.setRowCount(0)
         for item in items:
-            self.insertRow(0) #self.currentRow() + 1)
+            self.insertRow(0)
             for i in range(0, self.columnCount()):
-                print(self.horizontalHeaderItem(i).text())
                 internVar = enToIntern[self.horizontalHeaderItem(i).text()]
-                print(internVar)
                 if internVar in item:
                     self.setItem(0, i, QTableWidgetItem(str(item[internVar])))
 
