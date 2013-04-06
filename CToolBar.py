@@ -11,7 +11,9 @@ class CToolBar(QToolBar):
         self.setMovable(False)
 
         self.dir = QAction(self.style().standardIcon(QStyle.SP_DirHomeIcon), 'Change directory', self)
+        self.dir.setShortcut('Ctrl+D')
         self.tab = QAction(self.style().standardIcon(QStyle.SP_ToolBarHorizontalExtensionButton), 'Add tab', self)
+        self.tab.setShortcut('Ctrl+T')
 
         self.addAction(self.dir)
         self.addAction(self.tab)
