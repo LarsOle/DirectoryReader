@@ -19,8 +19,8 @@ class notifyFormat:
             self.line = self.clearTags(element)
             subprocess.Popen(['notify-send', "Anime: " + self.line])
 
-    def clearTags(self, line, tag):
+    def clearTags(self, line):
         self.line = line
         self.line = self.line[:-8]
-        self.line = self.line.strip(tag)
+        self.line = self.line.strip('<title>')
         return self.line
